@@ -1,0 +1,208 @@
+library(ggplot2)
+install.packages("ggplot2")
+library(ggplot2)
+library(knitr)
+.1+.8*5
+8*6-12
+8*0-12
+8*16-12
+-12*4
+8*16-48
+8*5-12(5/4)
+8*5-12*(5/4)
+8*5-12*(5/3)
+8*16-12*(16/3)
+8*12-12*(12/3)
+8*12-14*(12/3)
+8*5-14*(5/3)
+8*5-15*(5/3)
+8*7-14*(7/3)
+8*5-8*(5/3)
+8*1-8*(1/3)
+14-10
+8*5-4(5/3)
+8*5-4*(5/3)
+8*5-3*(5/3)
+8*5-3.5*(5/3)
+8*5-2.5*(5/3)
+8*5-2*(5/3)
+8*1-2*(1/3)
+8*1-1.5*(1/3)
+8*2-1.5*(2/3)
+iris
+kmeans(iris)
+kmeans(iris[1:3,])
+kmeans(iris[1:3,],3)
+iris[1:3,]
+iris[,1:3]
+kmeans(iris[,1:3])
+kmeans(iris[,1:3],3)
+cl<-kmeans(iris[,1:3],3)
+plot(iris[,1:3],col = cl$cluster)
+dist(iris[1,1:3],method="euclidean")
+dist(iris[1:3,1:3],method="euclidean")
+dist(iris[,1:3],method="euclidean")
+dist(iris[1:2,1:3],method="euclidean")
+dist(iris[1:3,1:3],method="euclidean")
+dist(iris[1:,1:3],method="euclidean")
+dist(iris[1:150,1:3],method="euclidean")
+dist(iris[2:3,1:3],method="euclidean")
+sample(1:150,50,replace=FALSE)
+training<-sample(1:150,50,replace=FALSE)
+set.seed(45)
+training<-sample(1:150,50,replace=FALSE)
+training
+training<-sample(1:150,50,replace=FALSE)
+training
+test<-setdiff(1:150,training)
+test
+dist(iris[2,4,1:3],method="euclidean")
+dist(iris[2,1:3],method="euclidean")
+dist(iris[2:4,1:3],method="euclidean")
+dist(iris[2:50,1:3],method="euclidean")
+iris[1,]
+iris[1,1:4]
+rbind(iris[1,1:4],iris[2,1:4])
+dist(rbind(iris[1,1:4],iris[2,1:4]))
+val<- dist(rbind(iris[1,1:4],iris[2,1:4]))
+val
+val<-c(val,dist(rbind(iris[1,1:4],iris[2,1:4])))
+val
+rr<-c(2,3,4,7,4,6,1)
+wich.max(rr)
+which.max(rr)
+iris[4]
+iris[4,5]
+iris[4,]
+count=0
+count++
+lks
+++count
+count<-count+1
+count
+training<-sample(1:150,50,replace=FALSE)
+training
+rr<-sapply(iris,rbind(training))
+rr<-sapply(training,rbind(iris[training,]))
+rr<-apply(training,rbind(iris[training,]))
+iris[training,]
+oneNN <- function(data) {#
+	training<-sample(1:150,50,replace=FALSE)#
+	training<-data[training,]#
+	test<-setdiff(1:150,training)#
+	test<-data[test,]#
+	count = 0#
+	for (i in 1:100){#
+		distMat = []#
+		for (j in 1:50){#
+			x <- test[i,1:4]#
+			y <- training[j,1:4]#
+			distMat<-c(distMat,dist(rbind(x,y)))	#
+		}#
+		guess<-training[which.max(distMat),5]#
+		if (guess == test[i,5]) count<-count+1#
+	}#
+	print("percentage of correct prediction:")#
+	return(count/100)#
+}
+oneNN <- function(data) {#
+	training<-sample(1:150,50,replace=FALSE)#
+	training<-data[training,]#
+	test<-setdiff(1:150,training)#
+	test<-data[test,]#
+	count = 0#
+	for (i in 1:100){#
+		distMat = numeric()#
+		for (j in 1:50){#
+			x <- test[i,1:4]#
+			y <- training[j,1:4]#
+			distMat<-c(distMat,dist(rbind(x,y)))	#
+		}#
+		guess<-training[which.max(distMat),5]#
+		if (guess == test[i,5]) count<-count+1#
+	}#
+	print("percentage of correct prediction:")#
+	return(count/100)#
+}
+oneNN(iris)
+}
+oneNN <- function(data) {#
+	training<-sample(1:150,50,replace=FALSE)#
+	training<-data[training,]#
+	test<-setdiff(1:150,training)#
+	test<-data[test,]#
+	count = 0#
+	for (i in 1:100){#
+		distMat = numeric()#
+		for (j in 1:50){#
+			x <- test[i,1:4]#
+			y <- training[j,1:4]#
+			distMat<-c(distMat,dist(rbind(x,y)))	#
+		}#
+		guess<-training[which.max(distMat),5]#
+		if (guess == test[i,5]) count<-count+1#
+	}#
+	print(percentage of correct prediction:)#
+	return(count/100)#
+}
+oneNN <- function(data) {#
+	training<-sample(1:150,50,replace=FALSE)#
+	training<-data[training,]#
+	test<-setdiff(1:150,training)#
+	test<-data[test,]#
+	count = 0#
+	for (i in 1:100){#
+		distMat = numeric()#
+		for (j in 1:50){#
+			x <- test[i,1:4]#
+			y <- training[j,1:4]#
+			distMat<-c(distMat,dist(rbind(x,y)))	#
+		}#
+		guess<-training[which.max(distMat),5]#
+		if (guess == test[i,5]) count<-count+1#
+		print guess#
+	}#
+	print("percentage of correct prediction:")#
+	return(count/100)#
+}
+oneNN <- function(data) {#
+	training<-sample(1:150,50,replace=FALSE)#
+	training<-data[training,]#
+	test<-setdiff(1:150,training)#
+	test<-data[test,]#
+	count = 0#
+	for (i in 1:100){#
+		distMat = numeric()#
+		for (j in 1:50){#
+			x <- test[i,1:4]#
+			y <- training[j,1:4]#
+			distMat<-c(distMat,dist(rbind(x,y)))	#
+		}#
+		guess<-training[which.max(distMat),5]#
+		if (guess == test[i,5]) count<-count+1#
+		print guess#
+	}#
+	return(count/100)#
+}
+oneNN <- function(data) {#
+	training<-sample(1:150,50,replace=FALSE)#
+	training<-data[training,]#
+	test<-setdiff(1:150,training)#
+	test<-data[test,]#
+	count = 0#
+	for (i in 1:100){#
+		distMat = numeric()#
+		for (j in 1:50){#
+			x <- test[i,1:4]#
+			y <- training[j,1:4]#
+			distMat<-c(distMat,dist(rbind(x,y)))	#
+		}#
+		guess<-training[which.max(distMat),5]#
+		if (guess == test[i,5]) {count<-count+1}#
+		print guess#
+	}#
+	return(count/100)#
+}
+library(shiny)
+getwd()
+runApp("ShinyCCmaps")
